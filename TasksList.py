@@ -1,4 +1,4 @@
-from exceptions import NotInListIndexException, NotIntegerException, NotImplementedException, InvalidCommandException
+from Exceptions import NotInListIndexException, NotIntegerException, NotImplementedException, InvalidCommandException
 from Task import Task
 
 
@@ -60,21 +60,18 @@ class TasksList:
             self.update_task(self.list, interface)
 
     def list_pending_tasks(self, list_tasks, interface):
-        #print(f"list_pending_tasks => {self.list}")
         interface.print("List of your pending tasks :")
         for count, task in enumerate(self.list):
             if not task.status:
                 interface.print(f"{count}) {task.name} => {task.status}")
 
     def list_done_tasks(self, list_tasks, interface):
-        #print("list_done_tasks => {self.list}")
         interface.print("List of your tasks already done :")
         for count, task in enumerate(self.list):
             if task.status:
                 interface.print(f"{count}) {task.name} => {task.status}")
 
     def list_all_tasks(self, list_tasks, interface):
-        #print("list_all_tasks => {self.list}")
         try:
             if len(self.list) == 0:
                 interface.print('No tasks')
