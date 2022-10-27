@@ -2,7 +2,6 @@ from TasksList import TasksList
 from Exceptions import InvalidCommandException, NotImplementedException
 from Interface import Interface
 
-
 class Main:
 
     def __init__(self):
@@ -19,15 +18,6 @@ class Main:
         interface.print("Goodbye")
         interface.print('╭∩╮(◉_◉)╭∩╮')
 
-    def print_menu(self):
-        print("add       : add new task")
-        print("add2      : add more new task")
-        print("done      : close task")
-        print("update    : amend task name")
-        print("list      : list pending tasks")
-        print("list-done : list closed tasks")
-        print("list-all  : list all tasks")
-        print("quit      : exit the application")
 
     def do_action(self, list_tasks, user_input, interface):
         actions = {

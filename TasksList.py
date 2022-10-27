@@ -1,5 +1,6 @@
 from Exceptions import NotInListIndexException, NotIntegerException, NotImplementedException, InvalidCommandException
 from Task import Task
+import json
 
 
 class TasksList:
@@ -11,6 +12,19 @@ class TasksList:
         new_task_name = input('Name of task :')
         new_task = Task(new_task_name)
         self.list.append(new_task)
+        print(self.list)
+
+        json_task = {
+            "name":new_task.name,
+            "status":False
+        }
+        with open("tasksList.json", "r") as file:
+            data = json.load(file)
+            data.append(json_task)
+            json.dump(data, file)
+
+
+
         interface.print('task saved ;-)')
         return self.list
 
